@@ -3,13 +3,12 @@ package com.aungpyae22.owen_furniture.service.interfaces;
 import com.aungpyae22.owen_furniture.dto.Response;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 public interface IProductService {
 
     Response addProduct(String productType, String productName, BigDecimal productPrice,String productPhotoUrl, String productDescription, String availableProduct);
 
-    List<String> getAllProductType();
+    Response getAllProductType();
 
     Response getAllProduct();
 

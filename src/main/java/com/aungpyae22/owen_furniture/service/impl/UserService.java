@@ -118,12 +118,11 @@ public class UserService implements IUserService {
 
         try{
             User user = repo.findById(Long.valueOf(id)).orElseThrow(() -> new OurException("User is not found"));
-            List<Order> orderList = user.getOrders();
-            List<OrderDTO> orderDTOList = Utils.mapOrderListEntityToOrderListDTO(orderList);
+            UserDTO userDTO = Utils.mapUserEntityToUserDTOAndOrders(user);
 
             response.setStatusCode(200);
             response.setMessage("successfully got history.");
-            response.setOrderList(orderDTOList);
+            response.setUser(userDTO);
         }
         catch(OurException e){
             response.setStatusCode(404);
