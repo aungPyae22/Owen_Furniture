@@ -33,12 +33,9 @@ public class OrderService implements IOrderService {
         Response response = new Response();
 
         try{
-            if(productId == null && userId == null){
-                throw new OurException("Please check your product id and user id");
-            }
 
-            Product product = productRepo.findById(productId).orElseThrow(() -> new OurException("Can't found the product with id "+productId));
-            User user = userRepo.findById(userId).orElseThrow(() -> new OurException("Can't found the user with id "+ userId));
+            Product product = productRepo.findById(productId).orElseThrow(() -> new OurException("Can't found the product with id "));
+            User user = userRepo.findById(userId).orElseThrow(() -> new OurException("Can't found the user with id "));
 
             requestOrder.setProduct(product);
             requestOrder.setUser(user);

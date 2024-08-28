@@ -51,7 +51,7 @@ public class ProductController {
 
     @GetMapping(path = "/type")
     public ResponseEntity<Response> getAllProductType(){
-        Response response = productService.getAllProduct();
+        Response response = productService.getAllProductType();
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 

@@ -52,8 +52,20 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public List<String> getAllProductType() {
-        return repo.findByDistinctProductType();
+    public Response getAllProductType() {
+        Response response = new Response();
+        try{
+            List<String> types = repo.findByDistinctProductType();
+            response.setStatusCode(200);
+            response.setMessage("successfully founded.");
+            response.setProductTypes(types);
+        }
+        catch(Exception e){
+            response.setStatusCode(500);
+            response.setMessage("Can't find the product's types. "+e.getMessage());
+        }
+        return response;
+
     }
 
     @Override

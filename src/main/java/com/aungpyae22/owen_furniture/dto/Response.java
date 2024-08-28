@@ -18,6 +18,7 @@ public class Response {
     private String message;
 
     private String token;
+    private List<String> productTypes;
     private String role;
     private String expirationDate;
     private String orderConfirmationCode;
